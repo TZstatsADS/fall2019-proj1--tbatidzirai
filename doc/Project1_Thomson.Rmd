@@ -1,5 +1,5 @@
 ---
-title: "Explicit language in music lyrics: What went wrong?"
+title: "Explicit Language in Music Lyrics"
 author: "Thomson Batidzirai"
 output: html_document
 ---
@@ -53,6 +53,7 @@ library(shiny)
 library(ggplot2)
 library(wordcloud)
 library(formattable)
+
 
 ```
 
@@ -297,6 +298,8 @@ The coparative wordcloud reveals that the most common words for these five genre
 </center>
 
 
+
+
 Zach Schonfeld in his [Newsweek article of 11/10/2015](https://www.newsweek.com/does-parental-advisory-label-still-matter-tipper-gore-375607) writes, "In 2015, teenagers aren't waiting in line at Sam Goody to pick up the Kendrick album; they're streaming it or grabbing it on iTunes, and a warning label directed at parents has as much sway as an "I Am Under 18" button on a porn site." The internet has generally made it more difficult for regulatory bodies to enforce regulations that bar underaged individuals from accessing certian media that is not meant for their consumption. With this lack of regulation, young people - who drive demand for certain music genres - makes it easier for musicians to tailor their lyrical message to appeal to that segment of society that has a burning desire to rebel from the norms of yesteryear. In analyzing this data, my inclination was that because of the easy access to any kinds of music with any kinds of lyrics on the internet, the prevalence of explicit content in music lyrics would increase over time.
 
 
@@ -436,10 +439,15 @@ count(WordData, word, sort = TRUE) %>%
             rotateRatio = 0.2)
 }
 
-cloud_function(filter(word_tibble, id %in% which(dt_lyrics$genre == "Hip-Hop")))
+# cloud_function(filter(word_tibble, id %in% which(dt_lyrics$genre == "Hip-Hop")))
 
 ```
 
+<center>
+
+![ ](../figs/hip-hop.png)
+
+</center>
 
 
 
@@ -448,12 +456,12 @@ Could that be because more Hip-Hop songs were released during the period 2006-20
 ```{r, warning=FALSE, message=FALSE, echo=FALSE}
 # Number of songs during the period 2006 to 2008
 
-library(plyr)
 
 
 dt_lyrics_2006_2008<-dt_lyrics %>%
   filter(year %in% 2006:2008)
 
+library(plyr)
 
 songs_2006_2008<-function(required_dt)
   return(sum(summary(factor(required_dt$year))))
@@ -479,7 +487,7 @@ Far from Hip-Hop songs being the most number of songs during the period, Rock so
 Now, from analyzing the above graph, together with the other graphs in the foregoing discussion, we can conclude that the bulk of explicit words used in music lyrics was between 2006 and 2008, and that most of these words were from the Hip-Hop genre. 
 
 
-## Further analysis needed
+## Future analysis
 
 Obviousily something must have triggered the increased number of explicit words in 2006-2008. I would like to hypothesize that it is the younger and more liberal generation, the group targeted by Hip-Hop artists, that are making it lucrative for Hip-Hop artists to increase the tempo on dishing out explicit lyrics. These artists seem to be on a drive for a care free agenda; and that as a sign of liberation and emancipation. However, more data would be needed to conclusively prove this assertion.  
 
